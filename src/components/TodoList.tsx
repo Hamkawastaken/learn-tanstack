@@ -14,13 +14,12 @@ export function TodoList() {
     queryFn: () => getTodos({ limit: 10 }),
   });
 
-  console.log(data);
-
   return (
     <div className="bg-amber-100 mt-12 p-8 w-[700px] rounded-xl">
       {data?.map((todo: Todo) => {
         return (
           <div
+            onClick={() => (window.location.href = `/todos/${todo.id}`)}
             className="flex items-center gap-8 mt-2 bg-pink-200 py-2 px-4 rounded-md justify-between cursor-pointer"
             key={todo.id}
           >
